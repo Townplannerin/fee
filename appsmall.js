@@ -1,4 +1,4 @@
-var map = L.map("map").setView([14.7286, 74.7086], 16);
+var map = L.map("map").setView([14.7286, 74.7086], 10);
 var scale = L.control.scale();
          scale.addTo(map);
 	var GoogleStreet =
