@@ -4,7 +4,7 @@ var map = L.map("map").setView([12.9801708, 77.5730896], 10);
 var legend = L.control();
 	legend.onAdd = function (map) {
 		div = L.DomUtil.create( 'div', 'info legend' );
-		div.innerHTML = '<h4><b>Site Visit</b></h4>' +  ('Touch to get attribute');
+		div.innerHTML = '<h4><b>Site Visit</b></h4>' +  ('Draw');
 		return div;
 	};
 	legend.addTo(map);
