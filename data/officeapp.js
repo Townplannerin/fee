@@ -2,10 +2,12 @@ var map = L.map('map', {
             zoomControl:true, maxZoom:21, minZoom:1
         })
         var hash = new L.Hash(map);
+	var scale = L.control.scale();
+         scale.addTo(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         
         var measureControl = new L.Control.Measure({
-            position: 'topleft',
+            position: 'topright',
             primaryLengthUnit: 'meters',
             secondaryLengthUnit: 'kilometers',
             primaryAreaUnit: 'sqmeters',
