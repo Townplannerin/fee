@@ -1,3 +1,4 @@
+function myFunction() {
 var map = L.map("map").setView([12.9801708, 77.5730896], 10);
 var legend = L.control();
 	legend.onAdd = function (map) {
@@ -36,3 +37,4 @@ var baseMaps = {'GoogleStreet': GoogleStreet,
 var hash = new L.Hash(map);
 var scale = L.control.scale();
          scale.addTo(map);
+}
