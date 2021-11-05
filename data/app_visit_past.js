@@ -2,7 +2,7 @@ var map = L.map("map").setView([12.9801708, 77.5730896], 10);
 var legend = L.control();
   legend.onAdd = function (map) {
     div = L.DomUtil.create( 'div', 'info legend' );
-    div.innerHTML = '<h4><b>Site Visit</b></h4>' +  ('Draw');
+    div.innerHTML = '<h4><b>Site Visit Past</b></h4>';
     return div;
   };
   legend.addTo(map);
