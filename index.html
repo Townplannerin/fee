@@ -121,9 +121,12 @@ popUpContent = (
 '<strong>Status : </strong>' + row.status
 );
       var marker = L.marker([row.Lat, row.Lon], {icon: L.VectorMarkers.icon({icon: 'tag', prefix: 'fa'})}).bindPopup((popUpContent));
-      marker.addTo(map);
+      return marker;
     }
   });
+var clusters = L.markerClusterGroup();
+clusters.addLayer(data);
+map.addLayer(clusters); 
   </script>
 </body>
 </html>
