@@ -124,6 +124,7 @@ popUpContent = (
 markers.addLayer(L.marker([row.Lat, row.Lon], {icon: L.VectorMarkers.icon({icon: 'tag', prefix: 'fa'})}).bindPopup(popUpContent));
    }
    map.addLayer(markers);
+   map.fitBounds(markers.getBounds());
   });
   </script>
 </body>
