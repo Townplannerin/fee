@@ -120,9 +120,7 @@ popUpContent = (
 '<strong>Date : </strong>' + row.date + '<br/>' +
 '<strong>Status : </strong>' + row.status
 );
-      var marker = L.marker([row.Lat, row.Lon], {
-        opacity: 1
-      }).bindPopup((popUpContent));
+      var marker = L.marker([row.Lat, row.Lon], {icon: L.VectorMarkers.icon({icon: 'tag', prefix: 'fa'})}).bindPopup((popUpContent));
       marker.addTo(map);
     }
   });
