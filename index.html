@@ -106,7 +106,8 @@ var c = new L.Control.Coordinates();
   $.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vSExpKrjjUCQVeTO_nSJGYeAixOQ8ZOTWU1OyxIC2IzyNRiREDokjiwfX-LXEU4J9CLW4DAcNRxrSy7/pub?output=csv', function(csvString) {
 
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-    for (var i in data) {
+   var markers = L.markerClusterGroup({maxClusterRadius: 40}); 
+   for (var i in data) {
       var row = data[i];
 popUpContent = (
 '<strong>File_ID : </strong>' + row.File_ID + '<br/>' +
@@ -120,13 +121,10 @@ popUpContent = (
 '<strong>Date : </strong>' + row.date + '<br/>' +
 '<strong>Status : </strong>' + row.status
 );
-      var marker = L.marker([row.Lat, row.Lon], {icon: L.VectorMarkers.icon({icon: 'tag', prefix: 'fa'})}).bindPopup((popUpContent));
-      return marker;
-    }
+markers.addLayer(L.marker([row.Lat, row.Lon], {icon: L.VectorMarkers.icon({icon: 'tag', prefix: 'fa'})}).bindPopup(popUpContent));
+   }
+   map.addLayer(markers);
   });
-var clusters = L.markerClusterGroup();
-clusters.addLayer(data);
-map.addLayer(clusters); 
   </script>
 </body>
 </html>
