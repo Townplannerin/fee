@@ -108,9 +108,8 @@ var c = new L.Control.Coordinates();
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
     for (var i in data) {
       var row = data[i];
-      var marker = L.marker([row.Lat, row.Lon], {
-        opacity: 1
-      }).bindPopup("<strong>File_ID : </strong>' + row.File_ID + '<br/>' +
+popUpContent = (
+'<strong>File_ID : </strong>' + row.File_ID + '<br/>' +
 '<strong>District : </strong>' + row.district + '<br/>' +
 '<strong>Taluk : </strong>' + row.taluk + '<br/>' +
 '<strong>Hobli : </strong>' + row.hobli + '<br/>' +
@@ -119,11 +118,14 @@ var c = new L.Control.Coordinates();
 '<strong>Extent : </strong>' + row.extent + '<br/>' +
 '<strong>Purpose : </strong>' + row.purpose + '<br/>' +
 '<strong>Date : </strong>' + row.date + '<br/>' +
-'<strong>Status : </strong>' + row.status");
+'<strong>Status : </strong>' + row.status
+);
+      var marker = L.marker([row.Lat, row.Lon], {
+        opacity: 1
+      }).bindPopup((popUpContent));
       marker.addTo(map);
     }
   });
-
   </script>
 </body>
 </html>
