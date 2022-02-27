@@ -6,19 +6,24 @@ var legend = L.control();
 		return div;
 	};
 	legend.addTo(map);
-	var GoogleStreet =
+var GoogleStreet =
           L.tileLayer('http://www.google.com/maps/vt?lyrs=m@189&gl=com&x={x}&y={y}&z={z}', {
-            attribution: 'Map data &copy;2019 <a href="http://maps.google.com">Google</a> | Terms of Use',
+            attribution: 'Map data &copy;2021 <a href="http://maps.google.com">Google</a> | Terms of Use',
             maxZoom: 21
           })
         var GoogleSatellite =
           L.tileLayer('http://www.google.com/maps/vt?lyrs=s@189&gl=com&x={x}&y={y}&z={z}', {
-            attribution: 'Map data &copy;2019 <a href="http://maps.google.com">Google</a> | Terms of Use',
+            attribution: 'Map data &copy;2021 <a href="http://maps.google.com">Google</a> | Terms of Use',
             maxZoom: 21
           })
         var GoogleHybrid =
           L.tileLayer('http://www.google.com/maps/vt?lyrs=s,h@189&gl=com&x={x}&y={y}&z={z}', {
-            attribution: 'Map data &copy;2019 <a href="http://maps.google.com">Google</a> | Terms of Use',
+            attribution: 'Map data &copy;2021 <a href="http://maps.google.com">Google</a> | Terms of Use',
+            maxZoom: 21
+          })
+	var OpenStreetMap =
+          L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy;2021 OpenStreetMap | Terms of Use',
             maxZoom: 21
           })
         map.addLayer(GoogleStreet);
@@ -30,7 +35,8 @@ var geojsonLayer = L.geoJSON(road);
 geojsonLayer.addTo(map);
 var baseMaps = {'GoogleStreet': GoogleStreet,
             'GoogleSatellite': GoogleSatellite,
-            'GoogleHybrid': GoogleHybrid
+            'GoogleHybrid': GoogleHybrid,
+	'OpenStreetMap': OpenStreetMap
         };
         L.control.layers(baseMaps,{'Cadastral': sslr,},{collapsed:true}).addTo(map);
 var hash = new L.Hash(map);
