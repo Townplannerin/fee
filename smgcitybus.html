@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Bus Route Map">
+<meta name="author" content="Saikprajwal">
+<title>SHIVAMOGGA CITY SERVICE</title>
+        <link rel="stylesheet" href="https://townplannerin.github.io/visit/leaflet/leaflet.css">
+<link rel="stylesheet" href="css/L.Control.Locate.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <style>
+    body { margin:0; padding:0; }
+    #map { position: absolute; top:0; bottom:0; right:0; left:0; }
+.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+</style>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="https://townplannerin.github.io/visit/leaflet/leaflet-1.4.0.js"></script>
+<script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="data/ShivamoggaBusRoute_0.js"></script>
+        <script src="data/ShivamoggaBusRoutestops_1.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:21, minZoom:1
+        })
+        map.attributionControl.setPrefix('<a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot;');
+        L.control.locate({locateOptions: {maxZoom: 21}}).addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+        }
+        function pop_ShivamoggaBusRoute_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Route'] !== null ? Autolinker.link(String(feature.properties['Route'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ShivamoggaBusRoute_0_0() {
+            return {
+                pane: 'pane_ShivamoggaBusRoute_0',
+                opacity: 1,
+                color: 'rgba(213,60,185,1.0)',
+                dashArray: '10,5',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_ShivamoggaBusRoute_0');
+        map.getPane('pane_ShivamoggaBusRoute_0').style.zIndex = 400;
+        map.getPane('pane_ShivamoggaBusRoute_0').style['mix-blend-mode'] = 'normal';
+        var layer_ShivamoggaBusRoute_0 = new L.geoJson(json_ShivamoggaBusRoute_0, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_ShivamoggaBusRoute_0',
+            layerName: 'layer_ShivamoggaBusRoute_0',
+            pane: 'pane_ShivamoggaBusRoute_0',
+            onEachFeature: pop_ShivamoggaBusRoute_0,
+            style: style_ShivamoggaBusRoute_0_0,
+        });
+        bounds_group.addLayer(layer_ShivamoggaBusRoute_0);
+        map.addLayer(layer_ShivamoggaBusRoute_0);
+        function pop_ShivamoggaBusRoutestops_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Stop_Name</th>\
+                        <td>' + (feature.properties['Stop_Name'] !== null ? Autolinker.link(String(feature.properties['Stop_Name'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ShivamoggaBusRoutestops_1_0() {
+            return {
+                pane: 'pane_ShivamoggaBusRoutestops_1',
+                radius: 4.2,
+                opacity: 1,
+                color: 'rgba(255,51,51,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ShivamoggaBusRoutestops_1');
+        map.getPane('pane_ShivamoggaBusRoutestops_1').style.zIndex = 401;
+        map.getPane('pane_ShivamoggaBusRoutestops_1').style['mix-blend-mode'] = 'normal';
+        var layer_ShivamoggaBusRoutestops_1 = new L.geoJson(json_ShivamoggaBusRoutestops_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ShivamoggaBusRoutestops_1',
+            layerName: 'layer_ShivamoggaBusRoutestops_1',
+            pane: 'pane_ShivamoggaBusRoutestops_1',
+            onEachFeature: pop_ShivamoggaBusRoutestops_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_ShivamoggaBusRoutestops_1_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ShivamoggaBusRoutestops_1);
+        map.addLayer(layer_ShivamoggaBusRoutestops_1);
+var OpenStreetMap =
+          L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; 2022 OpenStreetMap | Terms of Use',
+            maxZoom: 21
+          })
+map.addLayer(OpenStreetMap);
+var baseMaps = {'OpenStreetMap': OpenStreetMap};
+        L.control.layers(baseMaps,{'<img src="legend/ShivamoggaBusRoutestops_1.png" /> Shivamogga Bus Route stops': layer_ShivamoggaBusRoutestops_1,'<img src="legend/ShivamoggaBusRoute_0.png" /> Shivamogga Bus Route': layer_ShivamoggaBusRoute_0,}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_ShivamoggaBusRoutestops_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Stop_Name'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Stop_Name']) + '</div>':''), {permanent: true, offset: [-0, -0], className: 'css_ShivamoggaBusRoutestops_1'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        </script>
+    </body>
+</html>
