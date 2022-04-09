@@ -31,6 +31,13 @@
             zoomControl:true, maxZoom:21, minZoom:1
         })
         map.attributionControl.setPrefix('<a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot;');
+       var legend = L.control();
+	legend.onAdd = function (map) {
+		div = L.DomUtil.create( 'div', 'info legend' );
+		div.innerHTML = '<h4><b>SHIVAMOGGA CITY SERVICE</b></h4>' +  ('Route & Stops');
+		return div;
+	};
+	legend.addTo(map);
         L.control.locate({locateOptions: {maxZoom: 21}}).addTo(map);
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
