@@ -199,17 +199,17 @@ var map = L.map('map', {
         .title += 'Search for a place';
 
 	var GoogleStreet =
-          L.tileLayer('http://www.google.com/maps/vt?lyrs=m@189&gl=com&x={x}&y={y}&z={z}', {
+          L.tileLayer('https://www.google.com/maps/vt?lyrs=m@189&gl=com&x={x}&y={y}&z={z}', {
             attribution: 'Map data &copy;2021 <a href="http://maps.google.com">Google</a> | Terms of Use',
             maxZoom: 21
           })
         var GoogleSatellite =
-          L.tileLayer('http://www.google.com/maps/vt?lyrs=s@189&gl=com&x={x}&y={y}&z={z}', {
+          L.tileLayer('https://www.google.com/maps/vt?lyrs=s@189&gl=com&x={x}&y={y}&z={z}', {
             attribution: 'Map data &copy;2021 <a href="http://maps.google.com">Google</a> | Terms of Use',
             maxZoom: 21
           })
         var GoogleHybrid =
-          L.tileLayer('http://www.google.com/maps/vt?lyrs=s,h@189&gl=com&x={x}&y={y}&z={z}', {
+          L.tileLayer('https://www.google.com/maps/vt?lyrs=s,h@189&gl=com&x={x}&y={y}&z={z}', {
             attribution: 'Map data &copy;2021 <a href="http://maps.google.com">Google</a> | Terms of Use',
             maxZoom: 21
           })
