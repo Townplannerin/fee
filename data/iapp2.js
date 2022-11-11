@@ -220,7 +220,7 @@ var map = L.map('map', {
           })
         map.addLayer(GoogleStreet);
 var sslr = L.esri.tiledMapLayer({
-url: 'https://kgis.ksrsac.in/kgismaps1/rest/services/CadastralData_Admin/Cached_CadastralData_Admin/MapServer'
+url: 'https://kgis.ksrsac.in/kgismaps2/rest/services/CadastralData_Admin/Cached_CadastralData_Admin/MapServer'
 }).addTo(map);
 map.attributionControl.setPrefix('');
 
