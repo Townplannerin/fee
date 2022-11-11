@@ -330,3 +330,10 @@ var baseMaps = {'GoogleStreet': GoogleStreet,
         map.on("layerremove", function(){
             resetLabels([layer_Hobli_0,layer_Planning_districts_1,layer_Villages_2]);
         });
+var north = L.control({position: "bottomleft"});
+north.onAdd = function(map) {
+    var div = L.DomUtil.create("div", "info legend");
+    div.innerHTML = '<img src="NORTH.jpg">';
+    return div;
+}
+north.addTo(map);
