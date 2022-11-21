@@ -1,6 +1,4 @@
-var map = L.map('map', {
-            zoomControl:true, maxZoom:21, minZoom:1
-        })
+var map = L.map('map', {zoomSnap: 0, zoomDelta: 0.25})
         var hash = new L.Hash(map);
 	var scale = L.control.scale();
          scale.addTo(map);
