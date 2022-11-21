@@ -331,7 +331,7 @@ var baseMaps = {'GoogleStreet': GoogleStreet,
 var north = L.control({position: "bottomleft"});
 north.onAdd = function(map) {
     var div = L.DomUtil.create("div", "info legend");
-    div.innerHTML = '<img src="legend/NORTH.jpg">';
+    div.innerHTML = '<img src="https://townplannerin.github.io/visit/legend/NORTH.jpg">';
     return div;
 }
 north.addTo(map);
