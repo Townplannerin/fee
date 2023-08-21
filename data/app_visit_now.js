@@ -30,7 +30,7 @@ var OpenStreetMap =
           })
 map.addLayer(GoogleStreet);
 var sslr = L.esri.tiledMapLayer({
-url: 'https://kgis.ksrsac.in/kgismaps1/rest/services/CadastralData_Admin/Cached_CadastralData_Admin/MapServer'
+url: ''
 }).addTo(map);
 map.attributionControl.setPrefix('');
 var baseMaps = {'GoogleStreet': GoogleStreet,
