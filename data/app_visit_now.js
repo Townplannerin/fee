@@ -11,7 +11,7 @@ var featuresLayer1 = new L.GeoJSON(Villages, {
             style: function(feature) {
                 return {opacity: 1,
                 color: 'rgba(93,63,211,1.0)',
-                weight: 1,
+                weight: 3,
                 fillColor: '#FFFFFF00',
                 fillOpacity: 0,
                 interactive: true,};
