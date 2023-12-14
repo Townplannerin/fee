@@ -54,7 +54,7 @@ var OpenStreetMap =
           })
 map.addLayer(GoogleStreet);
 var sslr = L.esri.tiledMapLayer({
-url: 'https://kgis.ksrsac.in/kgismaps2/rest/services/CadastralData_Admin/Cached_HissaData_Admin/MapServer', maxZoom: 21}).addTo(map);
+url: '', maxZoom: 21}).addTo(map);
 map.attributionControl.setPrefix('');
 var baseMaps = {'GoogleStreet': GoogleStreet,
             'GoogleSatellite': GoogleSatellite,
